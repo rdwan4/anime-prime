@@ -9,21 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0a0a",
-        foreground: "#ededed",
-        primary: {
-          DEFAULT: "#8b5cf6",
-          foreground: "#ffffff",
-        },
-        card: {
-          DEFAULT: "rgba(23, 23, 23, 0.6)",
-          foreground: "#ffffff",
-        },
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: "#8B5CF6", // Premium Purple
       },
     },
   },
