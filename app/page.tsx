@@ -17,8 +17,8 @@ export default async function Home() {
       <div className="relative h-[85vh] w-full overflow-hidden">
         <img 
           src={hero.images.jpg.large_image_url} 
-          alt={hero.title}
-          className="absolute inset-0 w-full h-full object-cover scale-105 blur-[1px] opacity-50"
+            alt={hero.title}
+            className="absolute inset-0 w-full h-full object-cover scale-105 blur-[1px] opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/10 to-transparent" />

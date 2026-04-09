@@ -3,11 +3,14 @@ import { Play, Share2, Heart, Download, TrendingUp, Info } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
 import AnimePlayer from "@/components/AnimePlayer";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const anime = await getAnimeDetails(params.id);
+  if (!anime || !anime.data) return { title: 'Anime Not Found' };
+  
   return {
     title: `Watch ${anime.data.title} Online FREE | ANIMEPRIME`,
     description: `Stream ${anime.data.title} in HD with Sub & Dub. ${anime.data.synopsis?.substring(0, 150)}...`,
@@ -16,6 +19,8 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
 export default async function WatchPage({ params }: { params: { id: string } }) {
   const anime = await getAnimeDetails(params.id);
+  if (!anime || !anime.data) notFound();
+  
   const episodes = await getAnimeEpisodes(params.id);
   const data = anime.data;
 
