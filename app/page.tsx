@@ -3,6 +3,8 @@ import AnimeCard from "@/components/AnimeCard";
 import Link from "next/link";
 import { Play, Info, TrendingUp } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const trending = await getTrendingAnime();
   const topAllTime = await getTopAnime();

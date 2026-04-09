@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 import AnimePlayer from "@/components/AnimePlayer";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const anime = await getAnimeDetails(params.id);
   return {

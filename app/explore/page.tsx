@@ -3,6 +3,8 @@ import AnimeCard from "@/components/AnimeCard";
 import { ListFilter, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default async function ExplorePage({
   searchParams,
 }: {
