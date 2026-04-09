@@ -1,14 +1,14 @@
 import { ANIME } from "@consumet/extensions";
 
-// Initialize the Zoro (now known as Aniwatch) provider from Consumet
-const zoro = new ANIME.Zoro();
+// Initialize the Hianime (formerly Zoro/Aniwatch) provider from Consumet
+const hianime = new ANIME.Hianime();
 
 /**
  * Search Aniwatch for an anime.
  */
 export async function searchAniwatch(query: string) {
   try {
-    const results = await zoro.search(query);
+    const results = await hianime.search(query);
     return results;
   } catch (error) {
     console.error("Failed to search Aniwatch:", error);
@@ -22,7 +22,7 @@ export async function searchAniwatch(query: string) {
  */
 export async function getAniwatchDetails(id: string) {
   try {
-    const details = await zoro.fetchAnimeInfo(id);
+    const details = await hianime.fetchAnimeInfo(id);
     return details;
   } catch (error) {
     console.error("Failed to fetch Aniwatch details:", error);
@@ -37,7 +37,7 @@ export async function getAniwatchDetails(id: string) {
 export async function getAniwatchStream(episodeId: string) {
   try {
     // This fetches the direct video URLs from 3rd party providers like Megacloud that Aniwatch uses
-    const streamSources = await zoro.fetchEpisodeSources(episodeId);
+    const streamSources = await hianime.fetchEpisodeSources(episodeId);
     return streamSources;
   } catch (error) {
     console.error("Failed to fetch stream sources:", error);
@@ -50,7 +50,7 @@ export async function getAniwatchStream(episodeId: string) {
  */
 export async function getAniwatchTopAiring() {
   try {
-    const topAiring = await zoro.fetchTopAiring();
+    const topAiring = await hianime.fetchTopAiring();
     return topAiring;
   } catch (error) {
     console.error("Failed to fetch top airing:", error);
