@@ -3,13 +3,65 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Script from "next/script";
-import { Search, Play, User, Menu } from "lucide-react";
+import Navigation from "@/components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Premium Anime | Watch Anime Online",
-  description: "Experience anime in high definition with premium streaming features.",
+  metadataBase: new URL("https://www.animeprime.fun"),
+  title: {
+    default: "AnimeNews | Real-time Anime News & Database",
+    template: "%s | AnimeNews",
+  },
+  verification: {
+    other: {
+      monetag: "358a4b170de493ebc6c6a0268fd7b45f",
+    },
+  },
+  description: "The ultimate destination for anime fans. Real-time news, airing countdowns, and a massive anime database.",
+  keywords: ["anime news", "anime database", "airing anime", "seasonal anime", "manga news", "anime streaming"],
+  authors: [{ name: "AnimeNews Team" }],
+  creator: "AnimeNews",
+  publisher: "AnimeNews",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.animeprime.fun", // Official domain
+    siteName: "AnimeNews",
+    title: "AnimeNews | Real-time Anime News & Database",
+    description: "The ultimate destination for anime fans. Real-time news, airing countdowns, and a massive anime database.",
+    images: [
+      {
+        url: "/og-image.jpg", // User should add this file
+        width: 1200,
+        height: 630,
+        alt: "AnimeNews",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AnimeNews | Real-time Anime News & Database",
+    description: "The ultimate destination for anime fans. Real-time news, airing countdowns, and a massive anime database.",
+    images: ["/og-image.jpg"],
+    creator: "@animeprime",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -20,48 +72,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+        {/* Only enable when you have a real ID to avoid errors */}
+        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+            crossOrigin="anonymous"
+            strategy="lazyOnload"
+          />
+        )}
       </head>
       <body className={inter.className}>
-        <nav className="fixed top-0 w-full z-50 glass h-16 flex items-center justify-between px-6 md:px-12">
-          <div className="flex items-center gap-8">
-            <Link href="/" className="text-2xl font-bold text-gradient tracking-tighter">
-              ANIME<span className="text-white">PRIME</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
-              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-              <Link href="/explore" className="hover:text-primary transition-colors">Explore</Link>
-              <Link href="/trending" className="hover:text-primary transition-colors">Trending</Link>
-              <Link href="/genres" className="hover:text-primary transition-colors">Genres</Link>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <form action="/search" className="hidden md:flex items-center bg-white/5 border border-white/10 rounded-full px-4 py-1.5 focus-within:border-primary/50 transition-all">
-              <Search className="w-4 h-4 text-gray-400" />
-              <input 
-                name="q"
-                type="text" 
-                placeholder="Search anime..." 
-                className="bg-transparent border-none focus:ring-0 text-sm ml-2 w-48 placeholder:text-gray-500 outline-none"
-              />
-            </form>
-            <button className="hidden sm:flex items-center gap-2 bg-primary/20 text-primary border border-primary/30 px-4 py-1.5 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-all">
-              GO VIP
-            </button>
-            <button className="p-2 hover:bg-white/5 rounded-full transition-colors">
-              <User className="w-5 h-5" />
-            </button>
-            <button className="md:hidden p-2 hover:bg-white/5 rounded-full transition-colors">
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </nav>
+        <Navigation />
         <main className="pt-16 pb-20">
           {children}
         </main>
@@ -72,17 +94,16 @@ export default function RootLayout({
               <Link href="/" className="text-xl font-bold text-gradient tracking-tighter">
                 ANIME<span className="text-white">PRIME</span>
               </Link>
-              <p className="text-gray-600 text-xs mt-2 italic">Your premium anime streaming experience.</p>
+              <p className="text-gray-600 text-xs mt-2 italic">Your premium anime news source.</p>
             </div>
             <div className="flex flex-wrap justify-center gap-8 text-[11px] font-bold text-gray-500 uppercase tracking-widest">
               <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link href="/dmca" className="hover:text-primary transition-colors">DMCA</Link>
-              <Link href="/terms" className="hover:text-primary transition-colors">Terms & Service</Link>
-              <Link href="/explore" className="hover:text-primary transition-colors">Directory</Link>
+              <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+              <Link href="/explore" className="hover:text-primary transition-colors">Database</Link>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-600 text-[10px] uppercase tracking-widest mb-1">&copy; 2026 ANIMEPRIME</p>
-              <p className="text-[9px] text-gray-700">All media hosted on third-party servers.</p>
+              <p className="text-gray-600 text-[10px] uppercase tracking-widest mb-1">&copy; {new Date().getFullYear()} ANIMEPRIME</p>
+              <p className="text-[9px] text-gray-700">All data provided by Jikan API, AniList, and ANN.</p>
             </div>
           </div>
         </footer>
