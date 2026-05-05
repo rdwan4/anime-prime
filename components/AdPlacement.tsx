@@ -46,8 +46,8 @@ export default function AdPlacement({ zoneId, format, label = "Recommended" }: A
 
   // Styling based on format
   const sizeClasses = {
-    'banner': 'min-h-[90px] w-full max-w-[728px]',
-    'native': 'min-h-[250px] w-full max-w-[350px]',
+    'banner': 'min-h-[100px] w-full max-w-[970px]',
+    'native': 'min-h-[180px] w-full max-w-[728px]',
     'in-page-push': 'min-h-[100px] w-full max-w-[468px]',
   };
 

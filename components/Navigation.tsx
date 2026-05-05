@@ -20,11 +20,11 @@ export default function Navigation() {
     <>
       <nav className="fixed top-0 w-full z-50 glass h-16 flex items-center justify-between px-6 md:px-12">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:rotate-12 transition-transform duration-300">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0">
               <Zap className="text-white fill-white w-6 h-6" />
             </div>
-            <span className="text-2xl font-black tracking-tighter text-white uppercase italic group-hover:text-primary transition-colors">
+            <span className="text-2xl font-black tracking-tighter text-white uppercase italic group-hover:text-primary transition-colors whitespace-nowrap ml-1">
               Anime<span className="text-primary">News</span>
             </span>
           </Link>
