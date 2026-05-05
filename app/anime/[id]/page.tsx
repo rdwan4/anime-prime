@@ -585,7 +585,7 @@ export default async function AnimeDetail({ params }: { params: { id: string } }
                   </div>
                 </div>
 
-                <AdPlacement zoneId="7539153" format="native" />
+                <AdPlacement zoneId="236566" format="native" />
 
                 <div className="glass-card rounded-3xl p-6">
                   <h3 className="mb-4 flex items-center gap-2 text-lg font-bold">

@@ -318,7 +318,7 @@ export default async function Home() {
           </section>
         </div>
 
-        <AdPlacement zoneId="8340177" format="banner" />
+        <AdPlacement zoneId="236566" format="banner" />
 
         <section>
           <div className="section-heading mb-8 flex items-center justify-between">

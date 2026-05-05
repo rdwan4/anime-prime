@@ -137,7 +137,7 @@ export default async function NewsPage({
             <NewsCard item={item} featured />
             {(index + 1) % 8 === 0 && (
               <div className="md:col-span-2 lg:col-span-3 xl:col-span-4">
-                <AdPlacement zoneId="8340177" format="banner" />
+                <AdPlacement zoneId="236566" format="banner" />
               </div>
             )}
           </div>

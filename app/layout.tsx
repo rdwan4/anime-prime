@@ -102,11 +102,18 @@ export default function RootLayout({
               <Link href="/explore" className="hover:text-primary transition-colors">Database</Link>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-600 text-[10px] uppercase tracking-widest mb-1">&copy; {new Date().getFullYear()} ANIMEPRIME</p>
+              <p className="text-gray-600 text-[10px] uppercase tracking-widest mb-1">&copy; {new Date().getFullYear()} ANIMENEWS</p>
               <p className="text-[9px] text-gray-700">All data provided by Jikan API, AniList, and ANN.</p>
             </div>
           </div>
         </footer>
+        <Script 
+          src="https://quge5.com/88/tag.min.js" 
+          data-zone="236566" 
+          async 
+          data-cfasync="false"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
